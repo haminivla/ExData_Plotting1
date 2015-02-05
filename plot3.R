@@ -15,7 +15,7 @@ plot3 <- function() {
 	subst$DateTime <- strptime(subst$DateTime, "%d/%m/%Y %H:%M:%S")
 	subst$Date <- subst$Time <- NULL
 	
-	## Draw the graph with specified parameters and copy the screen output into a PNG file
+	## Draw the graph with specified parameters
 	with(subst, {
 		plot(DateTime, Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
 		points(DateTime, Sub_metering_2, type="l", col="red")
@@ -23,6 +23,8 @@ plot3 <- function() {
 		points(DateTime, Sub_metering_3, type="l", col="blue")
 	})
 	legend("topright", lty=1, col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+
+	## Output screen to PNG file. Since default size is 480x480, we need not specify them.
 	dev.copy(png, file="plot3.png")
 	dev.off()
 }

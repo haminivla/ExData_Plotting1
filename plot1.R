@@ -17,6 +17,8 @@ plot1 <- function() {
 	
 	## Draw the histogram with specified parameters and copy the screen output into a PNG file
 	hist(subst$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+	
+	## Output screen to PNG file. Since default size is 480x480, we need not specify them.
 	dev.copy(png, file="plot1.png")
 	dev.off()
 }

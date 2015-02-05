@@ -17,6 +17,8 @@ plot2 <- function() {
 	
 	## Draw the graph with specified parameters and copy the screen output into a PNG file
 	plot(subst$DateTime, subst$Global_active_power, type = "l", xlab="", ylab="Global Active Power (kilowatts)")
+	
+	## Output screen to PNG file. Since default size is 480x480, we need not specify them.
 	dev.copy(png, file="plot2.png")
 	dev.off()
 }

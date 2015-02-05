@@ -18,7 +18,8 @@ plot4 <- function() {
 	## Set the base plots
 	par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))	
 
-	## Draw the graphs with specified parameters and copy the screen output into a PNG file
+	## Draw the graphs with specified parameters
+	## Reduced the legend's text size using cex=0.7 and removed its border using bty="n"
 	with(subst, {
 		plot(DateTime, Global_active_power, type="l", xlab="", ylab="Global Active Power")
 		plot(DateTime, Voltage, type="l", xlab="datetime", ylab="Voltage")
@@ -28,6 +29,8 @@ plot4 <- function() {
 		legend("topright", lty=1, col=c("black", "red", "blue"), cex=0.7, legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty="n")
 		plot(DateTime, Global_reactive_power, type="l", xlab="datetime")
 	})
+
+	## Output screen to PNG file. Since default size is 480x480, we need not specify them.
 	dev.copy(png, file="plot4.png")
 	dev.off()
 }
